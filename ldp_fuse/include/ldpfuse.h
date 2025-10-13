@@ -418,7 +418,7 @@ static char* resolve_fd(int fd) {
 
 #define LDP_FUSE_PATH_MAX_LEN 256
 
-#define STAT_VER _STAT_VER
+#define STAT_VER 0
 
 // Whether `path` is in the LDP_FUSE filesystem. The LDP_FUSE filesystem is
 // mounted under the LDP_FUSE_PATH env variable.
@@ -886,7 +886,7 @@ int close(int fd) {
 }
 
 // Translated to multiple `close` calls. `flags` argument is ignored.
-int close_range(unsigned int first, unsigned int last, unsigned int flags) {
+int close_range(unsigned int first, unsigned int last, int flags) {
   LDP_FUSE_DEBUG_PRINT("close_range(%d, %d)\n", first, last);
   int retval = 0;
   if (first > last)
