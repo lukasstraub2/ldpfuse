@@ -429,7 +429,7 @@ static bool path_in_fs(const char* path) {
   char* cwd = NULL;
   char* fs_paths = getenv(LDP_FUSE_PATH);
   if (!fs_paths) {
-    in_fs = true;
+    in_fs = false;
     goto out;
   }
   cwd = getcwd(NULL, 0);
