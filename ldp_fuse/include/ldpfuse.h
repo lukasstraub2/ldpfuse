@@ -469,7 +469,7 @@ static bool fd_in_fs(int fd) {
   const ldp_fuse_open_fd* open_fd = get_open_fd_read(fd);
   bool cached_available = open_fd->in_fs != UNKNOWN;
   if (cached_available) {
-    in_fs = open_fd->in_fs;
+    in_fs = (open_fd->in_fs == IN_FS? true: false);
   }
   unlock_open_fd(fd);
   if (!cached_available) {
